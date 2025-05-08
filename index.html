@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Produtos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Catálogo de Produtos</h1>
+            <button id="aplicarDesconto" class="btn-desconto">Aplicar Desconto de 10%</button>
+        </header>
+        
+        <main>
+            <div id="mensagens"></div>
+            
+            <div id="produtos" class="produtos-grid">
+                <div class="loading">Carregando produtos...</div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+    
+    <script>
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+        window.onerror = function(message, source, lineno, colno, error) {
+            const mensagensDiv = document.getElementById('mensagens');
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = `Erro JavaScript: ${message} (linha ${lineno})`;
+            mensagensDiv.appendChild(errorDiv);
+            return false;
+        };
+    }
+    </script>
+</body>
+</html>
